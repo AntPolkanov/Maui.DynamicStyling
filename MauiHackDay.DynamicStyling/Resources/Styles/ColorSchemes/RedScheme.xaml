@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiHackDay.DynamicStyling.Resources.Styles.ColorSchemes.RedScheme">
+    
+    <Color x:Key="Primary">#790010</Color>
+    <Color x:Key="PrimaryDark">#FFB3AE</Color>
+
+    <Color x:Key="OnPrimary">#FFFFFF</Color>
+    <Color x:Key="OnPrimaryDark">#68000C</Color>
+
+    <Color x:Key="Secondary">#9E403E</Color>
+    <Color x:Key="SecondaryDark">#FFB3AE</Color>
+
+    <Color x:Key="Tertiary">#593000</Color>
+    <Color x:Key="TertiaryDark">#FFB875</Color>
+
+    <Color x:Key="Surface">#FAE2DF</Color>
+    <Color x:Key="SurfaceDark">#1E100F</Color>
+
+    <Color x:Key="OnSurface">#271817</Color>
+    <Color x:Key="OnSurfaceDark">#F9DCDA</Color>
+    
+</ResourceDictionary>

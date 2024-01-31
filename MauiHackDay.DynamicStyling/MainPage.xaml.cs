@@ -1,14 +1,16 @@
-﻿using System.Diagnostics;
+﻿using MauiHackDay.DynamicStyling.Resources.Styles.ColorSchemes;
+using System.Diagnostics;
 
 namespace MauiHackDay.DynamicStyling
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        int count = 1;
 
         public MainPage()
         {
             InitializeComponent();
+            SetColorScheme(new PurpleScheme());
             Application.Current.RequestedThemeChanged += HandleThemeChange;
         }
 
@@ -28,12 +30,40 @@ namespace MauiHackDay.DynamicStyling
         {
             count++;
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+            if (count % 2 == 1)
+            {
+                CounterBtn.Text = $"Switch color scheme. Current = Purple";
+                SetColorScheme(new PurpleScheme());
+            }
             else
-                CounterBtn.Text = $"Clicked {count} times";
+            {
+                CounterBtn.Text = $"Switch color scheme. Current = Red";
+                SetColorScheme(new RedScheme());
+            }
 
             SemanticScreenReader.Announce(CounterBtn.Text);
+        }
+
+        private void SetColorScheme(ResourceDictionary theme)
+        {
+            var mergedDictionaries = Application.Current.Resources.MergedDictionaries;
+            if (mergedDictionaries != null)
+            {
+                var toBeRemoved = new List<ResourceDictionary>();
+                foreach (var dict in mergedDictionaries)
+                {
+                    if (dict is PurpleScheme || dict is RedScheme)
+                    {
+                        toBeRemoved.Add(dict);
+                    }
+                }
+
+                foreach (var dict in toBeRemoved)
+                {
+                    mergedDictionaries.Remove(dict);
+                }
+                mergedDictionaries.Add(theme);
+            }
         }
     }
 
