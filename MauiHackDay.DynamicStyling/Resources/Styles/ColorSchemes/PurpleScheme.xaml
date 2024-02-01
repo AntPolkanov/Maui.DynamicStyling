@@ -21,4 +21,7 @@
     <Color x:Key="OnSurface">#1C1A24</Color>
     <Color x:Key="OnSurfaceDark">#E6E0EE</Color>
 
+    <x:String x:Key="DotNetBot">dotnet_bot.png</x:String>
+    <x:String x:Key="DotNetBotDark">dotnet_bot_dark.png</x:String>
+
 </ResourceDictionary>
